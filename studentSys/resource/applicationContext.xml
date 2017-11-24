@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<import resource="connection.xml"/>
+
+	<bean id="studentDao" class="com.shsxt.dao.impl.StudentDaoImpl">
+		<property name="commonDao" ref="commonDao"/>
+	</bean>
+	
+	<bean id="studentService" class="com.shsxt.service.impl.StudentServiceImpl">
+		<property name="studentDao" ref="studentDao"/>
+		<property name="commonService" ref="commonService"/>
+	</bean>
+	
+</beans>
